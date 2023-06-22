@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#
+#SBATCH --job-name=cross_sensory_generation
+#SBATCH --account=vision
+#SBATCH --partition=svl
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=32G
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=16
+#SBATCH --time 48:00:00
+#SBATCH --output=exp_new/logs/vision2touch_cross_object_slurm_%A.out
+#SBATCH --error=exp_new/logs/vision2touch_cross_object_slurm_%A.err
+#SBATCH --mail-user=douyiming@sjtu.edu.cn
+#SBATCH --mail-type=ALL
+
+
+######################
+# Begin work section #
+######################
+echo "SLURM_JOBID="$SLURM_JOBID
+echo "SLURM_JOB_NODELIST"=$SLURM_JOB_NODELIST
+echo "SLURM_NNODES"=$SLURM_NNODES
+echo "SLURMTMPDIR="$SLURMTMPDIR
+echo "working directory = "$SLURM_SUBMIT_DIR
+
+
+python main.py --lr 1e-4 --batch_size 64 \
+               --w_L1Loss 10.0 --w_GANLoss 1.0 \
+               --src_modality vision --des_modality touch \
+               --patience 500 \
+               --exp vision2touch_cross_object --num_workers 8 \
+               --split_location ../DATA_new/split_cross_object.json --eval
