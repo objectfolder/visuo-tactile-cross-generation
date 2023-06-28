@@ -17,7 +17,7 @@ python main.py --lr 1e-4 --batch_size 64 \
                --exp touch2vision
 ```
 
-Evaluate the best model in *vision_audio_dscmr*:
+Evaluate the best model in *touch2vision*:
 
 ```sh
 # Evaluate VisGel as an example
@@ -31,7 +31,7 @@ python main.py --lr 1e-4 --batch_size 64 \
 
 #### Add your own model
 
-To train and test your new model on ObjectFolder Cross-Sensory Retrieval Benchmark, you only need to modify several files in *models*, you may follow these simple steps.
+To train and test your new model on ObjectFolder Visuo-Tactile Cross Generation Benchmark, you only need to modify several files in *models*, you may follow these simple steps.
 
 1. Create new model directory
 
