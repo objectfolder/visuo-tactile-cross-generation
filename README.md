@@ -4,6 +4,10 @@ We can either predict touch from vision or vision from touch, leading to two sub
 
 ## Usage
 
+#### Data Preparation
+
+The dataset used to train the baseline models can be downloaded from [here](https://www.dropbox.com/scl/fo/q2480mewonqgzta6hw7g6/ACNWCTMq-rzi6Q9B1ceXB9U?rlkey=n8xmck2hv599kmcnu0k3uv6yd&st=d3x9t3sd&dl=0)
+
 #### Training & Evaluation
 
 Start the training process, and test the best model on test-set after training:
